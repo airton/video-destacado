@@ -1,0 +1,6 @@
+/*Vídeo em destaque*/
+#video_destaque_metabox .thumb{display: block; width:100%;}
+#video-destaque span{display: block;}
+#video-destaque small{color: #b1b1b1; display: }
+#video-destaque small b{color: #fff; background:#666; font-weight:bold; padding: 2px 4px}
+#video-destaque input[type=text]{width:95%; height:25px;}
