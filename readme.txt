@@ -5,6 +5,8 @@ Tags: video, destacado, destaque, post, page, post type
 Requires at least: 3.0
 Tested up to: a 3.0
 Stable tag: trunk
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
 
@@ -14,7 +16,28 @@ Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
 
 == Installation ==
 
-Aqui descreva como o usuário deve proceder para instalar seu plugin de forma correta.
+1. Descompacte o arquivo para este arquivo para o 'wp-content/plugins /' diretório dentro do WordPress
+
+	* Manter a estrutura de diretório do arquivo (todos os arquivos extraídos deve existir em 'wp-content/plugins/video-destacado/'
+
+== FAQ ==
+
+= É possível seugerir modificações e idéias para este plugin? =
+Aqui você pode colocar informações para os usuários pedirem implementações, mudanças, etc.
+Caso queira, você pode colocar o url do seu plugin, dessa forma:
+
+Claro que pode, para isso acesse o link [Nome do teu Plugin](htttp://www.vancindesign.com.br/contato)
+
+
+== Screenshots ==
+
+
+
+== Changelog ==
+
+= 0.1 =
+Exibi o vídeo destacado no post ou página.
+
 
 == License ==
 
@@ -25,19 +48,6 @@ Nome do teu Plugin is distributed in the hope that it will be useful, but WITHOU
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with Nome do teu Plugin. If not, see <http://www.gnu.org/licenses/>.
 
-== Frequently Asked Questions ==
+== Support ==
 
-= É possível seugerir modificações e idéias para este plugin? =
-Aqui você pode colocar informações para os usuários pedirem implementações, mudanças, etc.
-Caso queira, você pode colocar o url do seu plugin, dessa forma:
-
-Claro que pode, para isso acesse o link [Nome do teu Plugin](htttp://www.vancindesign.com.br/contato)
-
-== Changelog ==
-
-= 1.0 =
-* Aqui liste o que mudou na versão 1.0, para inserir mais mudanças, basta começar a linha com o sinal * seguido das alterações
-
-== Screenshots ==
-1. Caso vá publicar imagem do plugin, coloque descrição aqui, para mais descrição crie o item 2 seguido da nova descrição e assim sucessivamente
-
+* Visit http://www.vancindesign.com.br/contatos.php for help documentation.
