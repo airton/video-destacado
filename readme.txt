@@ -1,5 +1,5 @@
 === Vídeo Destacado ===
-Contributors: Quem contribuiu, caso seja mais de um, separe com vírgula
+Contributors: airtonvancin
 Donate link: htttp://www.vancindesign.com.br
 Tags: video, destacado, destaque, post, page, post type
 Requires at least: 3.0
@@ -22,11 +22,9 @@ Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
 
 == FAQ ==
 
-= É possível seugerir modificações e idéias para este plugin? =
-Aqui você pode colocar informações para os usuários pedirem implementações, mudanças, etc.
-Caso queira, você pode colocar o url do seu plugin, dessa forma:
+= É possível seugerir modificações e idéias para este plugin? 
 
-Claro que pode, para isso acesse o link [Nome do teu Plugin](htttp://www.vancindesign.com.br/contato)
+Claro que pode, para isso acesse o link [Vídeo Destacado](htttp://www.vancindesign.com.br/contato)
 
 
 == Screenshots ==
