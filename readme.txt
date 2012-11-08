@@ -1,46 +1,88 @@
-=== VÌdeo Destacado ===
+=== V√≠deo Destacado ===
 Contributors: airtonvancin
-Donate link: htttp://www.vancindesign.com.br
-Tags: video, destacado, destaque, post, page, post type
+Donate link: http://www.vancindesign.com.br/contato.php
+Tags: video, destacado, destaque, post, page, post type, youtube, adicionar, add, v√≠deo post
 Requires at least: 3.0
 Tested up to: a 3.0
 Stable tag: trunk
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Inserir um v√≠deo destacado do Youtube, para posts, p√°ginas e custom post types
 
-Inserir um vÌdeo destacado do Youtube, para posts, p·ginas e custom post types
+
 
 == Description ==
 
-Inserir um vÌdeo destacado do Youtube, para posts, p·ginas e custom post types
+Inserir um v√≠deo destacado do Youtube, para posts, p√°ginas e custom post types
+
+
 
 == Installation ==
 
-1. Descompacte o arquivo para este arquivo para o 'wp-content/plugins /' diretÛrio dentro do WordPress
+= Version 0.1 =
+1. Descompacte o arquivo para este arquivo para o 'wp-content/plugins /' diret√≥rio dentro do WordPress
+2. Manter a estrutura de diret√≥rio do arquivo, todos os arquivos extra√≠dos deve existir em 'wp-content/plugins/video-destacado/'
 
-	* Manter a estrutura de diretÛrio do arquivo (todos os arquivos extraÌdos deve existir em 'wp-content/plugins/video-destacado/'
+= Inserir o seguinte c√≥digo dentro do loop = 
+<code><?php video_destacado(); ?></code>
 
-== FAQ ==
+= Ex: = 
+<code>
+<?php
 
-= … possÌvel seugerir modificaÁıes e idÈias para este plugin? 
+// The Query
+query_posts( $args );
 
-Claro que pode, para isso acesse o link [VÌdeo Destacado](htttp://www.vancindesign.com.br/contato)
+// The Loop
+while ( have_posts() ) : the_post();
+	
+	video_destacado();
+
+endwhile;
+
+// Reset Query
+wp_reset_query();
+
+?>
+</code>
 
 
 == Screenshots ==
+
+1. Como sera exibido no admin o v√≠deo destacado
+
+
+
+== Frequently Asked Questions ==
+
+= Como exibir no post o v√≠deo? =
+Inserir o seguinte c√≥dgigo dentro do loop:
+<code><?php video_destacado(); ?></code>
+
+= √â poss√≠vel seugerir modifica√ß√µes e id√©ias para este plugin? =
+
+Claro que pode, para isso acesse o link [V√≠deo Destacado](htttp://www.vancindesign.com.br/contato)
+
+
+
+
+== Upgrade Notice ==
+
+= 0.1 =
+Exibi o v√≠deo destacado no post ou p√°gina.
 
 
 
 == Changelog ==
 
 = 0.1 =
-Exibi o vÌdeo destacado no post ou p·gina.
+Exibi o v√≠deo destacado no post ou p√°gina.
+
+
 
 
 == License ==
 
-This file is part of Nome do teu Plugin.
-Nome do teu Plugin is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published
+V√≠deo Destacado is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published
 by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 Nome do teu Plugin is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
@@ -48,4 +90,5 @@ You should have received a copy of the GNU General Public License along with Nom
 
 == Support ==
 
-* Visit http://www.vancindesign.com.br/contatos.php for help documentation.
+* Visit [Site](http://www.vancindesign.com.br/contatos.php)
+* Visit [Github](https://github.com/airton/video-destacado)

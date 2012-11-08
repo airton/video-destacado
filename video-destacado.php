@@ -14,24 +14,26 @@ function video_add_metaboxes(){
     add_meta_box( 'video_destaque_metabox', 'Vídeo Destacado', 'video_destaque_metabox', 'post', 'side', 'high' );
 }
 function video_destaque_metabox(){
-        $values = get_post_custom( $post->ID );
-        $id_video       = isset( $values['id_video'] ) ? esc_attr( $values['id_video'][0] ) : '';
-/*        $titulo_video   = isset( $values['titulo_video'] ) ? esc_attr( $values['titulo_video'][0] ) : '';
+        $values     = get_post_custom( $post->ID );
+        $id_video   = isset( $values['id_video'] ) ? esc_attr( $values['id_video'][0] ) : '';
+
+/*      $titulo_video   = isset( $values['titulo_video'] ) ? esc_attr( $values['titulo_video'][0] ) : '';
         $desc_video     = isset( $values['desc_video'] ) ? esc_attr( $values['desc_video'][0] ) : '';*/
-        wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
+        wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );           
 
     ?>
 
-        <img style="<? if(empty($id_video)){echo 'display: none;' ;} else {echo 'display: block' ;}  ?>" class="thumb" src="http://img.youtube.com/vi/<? echo $id_video ?>/0.jpg" alt="<? echo $titulo_video ?>" />
+        <img style="<?php if(empty($id_video)){echo 'display: none;' ;} else {echo 'display: block' ;}  ?>" class="thumb" src="http://img.youtube.com/vi/<?php echo $id_video; ?>/0.jpg" alt="<?php echo $titulo_video; ?>" />
 
         <ul id='video-destaque'>
-            <li><span>ID do Vídeo:</span> <input type="text" id="id_video" name="id_video" value="<? echo $id_video ?>" /><small>Ex: www.youtube.com/watch?v=<b>XdMD4LrC4wY</b></small></li>
-<!--             <li><span>Título:</span> <input type="text" id="titulo_video" name="titulo_video" value="<? //echo $titulo_video ?>" /></li>
+            <li><span>ID do Vídeo:</span> <input type="text" id="id_video" name="id_video" value="<?php echo $id_video; ?>" /><small>Ex: www.youtube.com/watch?v=<b>XdMD4LrC4wY</b></small></li>
+<!--        <li><span>Título:</span> <input type="text" id="titulo_video" name="titulo_video" value="<? //echo $titulo_video ?>" /></li>
             <li><span>Descrição:</span> <input type="text" id="desc_video" name="desc_video" value="<? //echo $desc_video ?>" /></li> -->
             <li><input type="button" tabindex="3" value="Adicionar" class="button add"><input type="button" tabindex="3" value="Remover" class="button del"></li>
         </ul>
 
-  <?php
+  <?php           
+            
 }
 
 add_action( 'save_post', 'video_destaque_metabox_save' );
@@ -56,7 +58,18 @@ function video_destaque_metabox_save( $post_id ){
 
 }
 
+function video_destacado(){
+    $values = get_post_custom( $post->ID );
+    $id_video = isset( $values['id_video'] ) ? esc_attr( $values['id_video'][0] ) : '';    
+    $iframe = "<iframe width='560' height='315' src='http://www.youtube.com/embed/".$id_video."' frameborder='0' allowfullscreen></iframe>";    
+    echo $iframe; 
+}
+
 function vd_scripts() {
+    wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
+    wp_enqueue_script( 'jquery' );
+
     wp_register_script('my-upload', plugins_url('video-destacado') . '/js/vd-admin.js');
     wp_enqueue_script('my-upload');
 }
