@@ -56,49 +56,50 @@ wp_reset_query();
 </code>
 
 
-== Screenshots ==
+Frequently Asked Questions
+==========================
 
-1. Como sera exibido no admin o vídeo destacado
+Como exibir no post o vídeo?
+----------------------------
 
-
-
-== Frequently Asked Questions ==
-
-= Como exibir no post o vídeo? =
 Inserir o seguinte códgigo dentro do loop:
 <code><?php video_destacado(); ?></code>
 
-= É possível seugerir modificações e idéias para este plugin? =
 
-Claro que pode, para isso acesse o link [Vídeo Destacado](htttp://www.vancindesign.com.br/contato)
+É possível seugerir modificações e idéias para este plugin?
+===========================================================
+
+Claro que pode, para isso acesse o link htttp://www.vancindesign.com.br/contato.php
 
 
+Upgrade Notice
+==============
 
-
-== Upgrade Notice ==
-
-= 0.1 =
+0.1
+---
 Exibi o vídeo destacado no post ou página.
 
 
 
-== Changelog ==
+Changelog
+---------
 
-= 0.1 =
+0.1
+===
+
 Exibi o vídeo destacado no post ou página.
 
 
 
 
-== License ==
+License
+=======
 
-Vídeo Destacado is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published
-by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-Nome do teu Plugin is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-You should have received a copy of the GNU General Public License along with Nome do teu Plugin. If not, see <http://www.gnu.org/licenses/>.
+GNU General Public License for more details.
+<http://www.gnu.org/licenses/>.
 
-== Support ==
+Support
+=======
 
-* Visit [Site](http://www.vancindesign.com.br/contatos.php)
-* Visit [Github](https://github.com/airton/video-destacado)
+* Visit <http://www.vancindesign.com.br/contatos.php>
+* Visit <https://github.com/airton/video-destacado>
