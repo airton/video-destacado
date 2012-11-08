@@ -1,31 +1,41 @@
-=== Vídeo Destacado ===
-Contributors: airtonvancin
-Donate link: http://www.vancindesign.com.br/contato.php
-Tags: video, destacado, destaque, post, page, post type, youtube, adicionar, add, vídeo post
-Requires at least: 3.0
-Tested up to: a 3.0
-Stable tag: trunk
-License: GPLv2 or later
+Vídeo Destacado
+===============
+
+* Contributors: airtonvancin
+* Donate link: http://www.vancindesign.com.br/contato.php
+* Tags: video, destacado, destaque, post, page, post type, youtube, adicionar, add, vídeo post
+* Requires at least: 3.0
+* Tested up to: a 3.0
+* Stable tag: trunk
+* License: GPLv2 or later
+* Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
+
+
+
+Description
+===========
+
 Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
 
 
 
-== Description ==
-
-Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
-
+Installation
+===========
 
 
-== Installation ==
+Version 0.1
+-----------
+* 1. Descompacte o arquivo para este arquivo para o 'wp-content/plugins /' diretório dentro do WordPress
+* 2. Manter a estrutura de diretório do arquivo, todos os arquivos extraídos deve existir em 'wp-content/plugins/video-destacado/'
 
-= Version 0.1 =
-1. Descompacte o arquivo para este arquivo para o 'wp-content/plugins /' diretório dentro do WordPress
-2. Manter a estrutura de diretório do arquivo, todos os arquivos extraídos deve existir em 'wp-content/plugins/video-destacado/'
 
-= Inserir o seguinte código dentro do loop = 
+Inserir o seguinte código dentro do loop
+----------------------------------------
+
 <code><?php video_destacado(); ?></code>
 
-= Ex: = 
+Ex: 
+---
 <code>
 <?php
 
