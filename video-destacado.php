@@ -12,12 +12,20 @@ Author URI: http://www.vancindesign.com.br
 add_action( 'add_meta_boxes', 'video_add_metaboxes' );
 function video_add_metaboxes(){
     add_meta_box( 'video_destaque_metabox', 'Vídeo Destacado', 'video_destaque_metabox', 'post', 'side', 'high' );
+    add_meta_box( 'video_destaque_metabox', 'Vídeo Destacado', 'video_destaque_metabox', 'page', 'side', 'high' );
+
+    $post_types = get_post_types( array( 'public' => true ) );
+    foreach ( $post_types as $post_type ) {
+        if ( $post_type == 'page' || $post_type =='post' )
+            continue;
+        add_meta_box( 'video_destaque_metabox', 'Vídeo Destacado', 'video_destaque_metabox', $post_type, 'side', 'high' );
+    }
 }
 function video_destaque_metabox(){
         $values     = get_post_custom( $post->ID );
         $id_video   = isset( $values['id_video'] ) ? esc_attr( $values['id_video'][0] ) : '';
 
-/*      $titulo_video   = isset( $values['titulo_video'] ) ? esc_attr( $values['titulo_video'][0] ) : '';
+      /*$titulo_video   = isset( $values['titulo_video'] ) ? esc_attr( $values['titulo_video'][0] ) : '';
         $desc_video     = isset( $values['desc_video'] ) ? esc_attr( $values['desc_video'][0] ) : '';*/
         wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );           
 
