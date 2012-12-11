@@ -22,8 +22,11 @@ function video_add_metaboxes(){
     }
 }
 function video_destaque_metabox(){
-        $values     = get_post_custom( $post->ID );
-        $id_video   = isset( $values['id_video'] ) ? esc_attr( $values['id_video'][0] ) : '';
+        $values         = get_post_custom( $post->ID );
+        $id_video       = isset( $values['id_video'] ) ? esc_attr( $values['id_video'][0] ) : '';
+        $width_video    = isset( $values['width_video'] ) ? esc_attr( $values['width_video'][0] ) : '';  
+        $height_video   = isset( $values['height_video'] ) ? esc_attr( $values['height_video'][0] ) : ''; 
+
 
       /*$titulo_video   = isset( $values['titulo_video'] ) ? esc_attr( $values['titulo_video'][0] ) : '';
         $desc_video     = isset( $values['desc_video'] ) ? esc_attr( $values['desc_video'][0] ) : '';*/
@@ -37,6 +40,23 @@ function video_destaque_metabox(){
             <li><span>ID do Vídeo:</span> <input type="text" id="id_video" name="id_video" value="<?php echo $id_video; ?>" /><small>Ex: www.youtube.com/watch?v=<b>XdMD4LrC4wY</b></small></li>
 <!--        <li><span>Título:</span> <input type="text" id="titulo_video" name="titulo_video" value="<? //echo $titulo_video ?>" /></li>
             <li><span>Descrição:</span> <input type="text" id="desc_video" name="desc_video" value="<? //echo $desc_video ?>" /></li> -->
+            <li>
+                <div class="vd-options">
+                    <a href="#">More Options</a>
+                </div>
+                <div class="vd-more">
+                    <div class="box">
+                        <span>Width:</span>
+                        <input type="text" id="width_video" name="width_video" value="<?php echo $width_video; ?>" />
+                        <small>Default: <b>560</b></small>
+                    </div>
+                    <div class="box">
+                        <span>Height:</span>
+                        <input type="text" id="height_video" name="height_video" value="<?php echo $height_video; ?>" /> 
+                        <small>Default: <b>315</b></small>
+                    </div>
+                </div>
+            </li>
             <li><input type="button" tabindex="3" value="Adicionar" class="button add"><input type="button" tabindex="3" value="Remover" class="button del"></li>
         </ul>
 
@@ -61,6 +81,8 @@ function video_destaque_metabox_save( $post_id ){
         if( isset( $_POST['texto_meta_box'] ) )
         update_post_meta( $post_id, 'texto_meta_box', wp_kses( $_POST['texto_meta_box'], $allowed ) );
         update_post_meta( $post_id, 'id_video', wp_kses( $_POST['id_video'], $allowed ) );
+        update_post_meta( $post_id, 'width_video', wp_kses( $_POST['width_video'], $allowed ) );
+        update_post_meta( $post_id, 'height_video', wp_kses( $_POST['height_video'], $allowed ) );
         /*update_post_meta( $post_id, 'titulo_video', wp_kses( $_POST['titulo_video'], $allowed ) );
         update_post_meta( $post_id, 'desc_video', wp_kses( $_POST['desc_video'], $allowed ) );*/
 
@@ -69,8 +91,16 @@ function video_destaque_metabox_save( $post_id ){
 function video_destacado(){
     $values = get_post_custom( $post->ID );
     $id_video = isset( $values['id_video'] ) ? esc_attr( $values['id_video'][0] ) : '';    
-    $iframe = "<iframe width='560' height='315' src='http://www.youtube.com/embed/".$id_video."' frameborder='0' allowfullscreen></iframe>";    
+
+    $width_video = isset( $values['width_video'] ) ? esc_attr( $values['width_video'][0] ) : '';  
+    if(empty($width_video)){ $width_video = 560; }  
+    $height_video = isset( $values['height_video'] ) ? esc_attr( $values['height_video'][0] ) : ''; 
+    if(empty($height_video)){ $height_video = 315; }  
+
+    if(!empty($id_video)):
+    $iframe = "<iframe width='".$width_video."' height='".$height_video."' src='http://www.youtube.com/embed/".$id_video."' frameborder='0' allowfullscreen></iframe>";    
     echo $iframe; 
+    endif;
 }
 
 function vd_scripts() {

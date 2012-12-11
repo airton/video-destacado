@@ -13,5 +13,9 @@ jQuery(function($){
     	$('#video-destaque #id_video').val('');
     	$('#video_destaque_metabox .thumb').remove();
     });
+    $('.vd-options a').click(function(event){
+        event.preventDefault();
+        $('.vd-more').toggle();
+    });
 });
 //]]>

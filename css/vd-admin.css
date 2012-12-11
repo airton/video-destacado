@@ -4,3 +4,5 @@
 #video-destaque small{color: #b1b1b1; display: }
 #video-destaque small b{color: #fff; background:#666; font-weight:bold; padding: 2px 4px}
 #video-destaque input[type=text]{width:95%; height:25px;}
+#video-destaque .box{float: left; width: 50%; margin: 10px 0;}
+#video-destaque .vd-more{display: none;}
