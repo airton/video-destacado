@@ -3,7 +3,7 @@
 /*
 Plugin Name: Vídeo Destacado
 Description: Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
-Version: 0.1
+Version: 0.2
 License: GPL
 Author: Airton Vancin Junior
 Author URI: http://www.vancindesign.com.br
@@ -104,12 +104,9 @@ function video_destacado(){
 }
 
 function vd_scripts() {
-    wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
-    wp_enqueue_script( 'jquery' );
-
     wp_register_script('my-upload', plugins_url('video-destacado') . '/js/vd-admin.js');
     wp_enqueue_script('my-upload');
+    wp_enqueue_script('jquery');
 }
 function vd_styles() {
     wp_register_style('custom-admin', plugins_url('video-destacado') . '/css/vd-admin.css');
