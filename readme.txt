@@ -1,33 +1,33 @@
-=== Vídeo Destacado ===
+﻿=== Vídeo Destacado ===
 Contributors: airtonvancin
-Donate link: http://www.vancindesign.com.br/contato.php
+Donate link: http://www.vancindesign.com.br/contatos.php
 Tags: video, destacado, destaque, post, page, post type, youtube, adicionar, add, vídeo post
 Requires at least: 3.0
-Tested up to: a 3.0
-Stable tag: trunk
+Tested up to: a 3.9
+Stable tag: 0.2
 License: GPLv2 or later
-Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
+Insert a video posted to Youtube for posts, pages and custom post types
 
 
 
 == Description ==
 
-Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
+Insert a video posted to Youtube for posts, pages and custom post types
 
 
 
 == Installation ==
 
-1. Descompacte o arquivo para a pasta de plugins o 'wp-content/plugins/' diretório dentro do WordPress
-2. Manter a estrutura de diretório do arquivo, todos os arquivos extraídos deve existir em 'wp-content/plugins/video-destacado/'
+1. Unzip the file to the plugins folder of the 'wp-content/plugins/' directory inside of WordPress
+2. Keep the directory structure of the file, all extracted files should exist in 'wp-content/plugins/video-destacado/'
 
 = Version 0.2 =
-Adicionar <code>width</code> e <code>height</code> ao player
+Add width and height of the player
 
 = Version 0.1 =
-Exibi o vídeo destacado no post, página e custom post types.
+Highlighted in the video display post, page and custom post types.
 
-= Inserir o seguinte código dentro do loop = 
+= Enter the following code inside the loop = 
 <code><?php video_destacado(); ?></code>
 
 = Ex: = 
@@ -53,40 +53,40 @@ wp_reset_query();
 
 == Screenshots ==
 
-1. Como sera exibido no admin o vídeo destacado
+1. As will be shown in the video featured admin
 
 
 
 == Frequently Asked Questions ==
 
-= Como exibir no post o vídeo? =
+= How to display the video in the post? =
+
 Inserir o seguinte código dentro do loop
 <code><?php video_destacado(); ?></code>
 
-= É possível seugerir modificações e idéias para este plugin? =
+= You can seugerir modifications and ideas for this plugin? =
 
-Claro que pode, para isso acesse o link [Vídeo Destacado](htttp://www.vancindesign.com.br/contato.php)
-
+Sure you can, go to this link [Featured Video] (http://www.vancindesign.com.br/contatos.php)
 
 
 
 == Upgrade Notice ==
 
 = 0.2 =
-Adicionar <code>width</code> e <code>height</code> ao player
+Add width and height of the player
 
 = 0.1 =
-Exibi o vídeo destacado no post, página e custom post types.
+Highlighted in the video display post, page and custom post types.
 
 
 
 == Changelog ==
 
 = 0.2 =
-Adicionar <code>width</code> e <code>height</code> ao player
+Add width and height of the player
 
 = 0.1 =
-Exibi o vídeo destacado no post, página e custom post types.
+Highlighted in the video display post, page and custom post types.
 
 
 
