@@ -4,8 +4,8 @@
 - Donate link: http://www.vancindesign.com.br/
 - Tags: video, destacado, destaque, post, page, post type, youtube, adicionar, add, vídeo post
 - Requires at least: 3.0
-- Tested up to: a 3.0
-- Stable tag: trunk
+- Tested up to: a 3.9
+- Stable tag: 0.2
 - License: GPLv2 or later
 - Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
 
