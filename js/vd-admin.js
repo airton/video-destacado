@@ -1,5 +1,5 @@
 //<![CDATA[
-jQuery(function($){ 
+jQuery(function($){
     $('#video-destaque .button.add').bind('click', function(){
     	var id = $('#video-destaque #id_video').attr("value");
     	if( id == "" ){
@@ -16,6 +16,14 @@ jQuery(function($){
     $('.vd-options a').click(function(event){
         event.preventDefault();
         $('.vd-more').toggle();
+    });
+
+    // Admin settings select all
+    $(document).ready(function() {
+        $("#cb-select-all").click(function() {
+            var checkBoxes = $("input[name*=video_destacado]");
+            checkBoxes.prop("checked", !checkBoxes.prop("checked"));
+        });
     });
 });
 //]]>
