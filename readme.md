@@ -1,10 +1,6 @@
 # Vídeo Destacado #
 
-<form action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post">
-<input type="hidden" name="currency" value="BRL" />
-<input type="hidden" name="receiverEmail" value="chapolinsk@hotmail.com" />
-<input type="image" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/doacoes/209x48-doar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
-</form>
+[![](https://p.simg.uol.com.br/out/pagseguro/i/botoes/doacoes/209x48-doar-assina.gif)](https://pagseguro.uol.com.br/checkout/v2/donation.html?currency=BRL&receiverEmail=chapolinsk@hotmail.com)
 
 Link for page the wordpress plugin
 [http://wordpress.org/plugins/video-destacado/](http://wordpress.org/plugins/video-destacado/)
