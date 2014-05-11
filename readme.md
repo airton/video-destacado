@@ -1,30 +1,25 @@
 # Vídeo Destacado #
 
-- Contributors: airtonvancin
-- Donate link: http://www.vancindesign.com.br/
-- Tags: video, destacado, destaque, post, page, post type, youtube, adicionar, add, vídeo post
-- Requires at least: 3.0
-- Tested up to: a 3.9
-- Stable tag: 0.2
-- License: GPLv2 or later
-- Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
+<form action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post">
+<!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+<input type="hidden" name="currency" value="BRL" />
+<input type="hidden" name="receiverEmail" value="chapolinsk@hotmail.com" />
+<input type="image" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/doacoes/209x48-doar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+</form>
 
+Link for page the wordpress plugin
+[http://wordpress.org/plugins/video-destacado/](http://wordpress.org/plugins/video-destacado/)
 
 # Description #
 
-Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
+Insert a video posted to Youtube for posts, pages and custom post types.
 
 # Installation #
 
-1. Descompacte o arquivo para a pasta de plugins o 'wp-content/plugins/' diretório dentro do WordPress
-2. Manter a estrutura de diretório do arquivo, todos os arquivos extraídos deve existir em 'wp-content/plugins/video-destacado/'
+1. Unzip the file to the plugins folder of the 'wp-content/plugins/' directory inside of WordPress
+2. Keep the directory structure of the file, all extracted files should exist in 'wp-content/plugins/video-destacado/'
 
-## Version 0.2 ##
-
-Adicionar <code>width</code> e <code>height</code> ao player
-
-## Version 0.1 ##
-Exibi o vídeo destacado no post, página e custom post types.
+## How to use ##
 
 **Inserir o seguinte código dentro do loop**
  
@@ -49,42 +44,27 @@ Exibi o vídeo destacado no post, página e custom post types.
     
     ?>
 
+
+## Version 1.0 ##
+Add page settings
+
+Settings > Vídeo Destacado
+
+## Version 0.2 ##
+
+Add <code>width</code> and <code>height</code> of the player
+
+## Version 0.1 ##
+Highlighted in the video display post, page and custom post types.
+
+
 **Screenshots**
 
-Como sera exibido no admin o vídeo destacado
+Settings page
+![](http://ps.w.org/video-destacado/assets/screenshot-2.png)
 
-![](http://ps.w.org/video-destacado/assets/screenshot-1.png?rev=622260)
-
-**Frequently Asked Questions**
-
-1. Como exibir no post o vídeo?
-Inserir o seguinte código dentro do loop
-
-<code><?php video_destacado(); ?></code>
-
-2. É possível seugerir modificações e idéias para este plugin?
-
-Claro que pode, para isso acesse o link [@airtonvancin](https://twitter.com/airtonvancin)
-
-**Upgrade Notice**
-
-**0.2**
-
-Adicionar <code>width</code> e <code>height</code> ao player
-
-**0.1**
-
-Exibi o vídeo destacado no post, página e custom post types.
-
-**Changelog**
-
-**0.2**
-
-Adicionar <code>width</code> e <code>height</code> ao player
-
-**0.1**
-
-Exibi o vídeo destacado no post, página e custom post types.
+As will be shown in the video featured admin
+![](http://ps.w.org/video-destacado/assets/screenshot-1.png)
 
 
 **License**

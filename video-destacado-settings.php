@@ -22,6 +22,9 @@
         }
 
         register_setting( 'video-destacado-settings-group', 'video_destacado_default' );
+        if( get_option('video_destacado_active') != 'disable' ){
+            update_option( 'video_destacado_active', 'active' );
+        }
     }
 
 
@@ -30,21 +33,27 @@
 	<div class="wrap">
 		<?php screen_icon(); ?>
 		<h2>Vídeo Destacado Settings</h2>
-		<p>Ativar o plugin para:</p>
+		<p>Active the plugin to:</p>
 		<form action="options.php" method="post">
 
             <?php settings_fields( 'video-destacado-settings-group' ); ?>
             <?php do_settings_sections( 'video-destacado-settings-group' ); ?>
 
-            <input type="text" value="active" name="video_destacado_active">
+            <input type="hidden" value="<?php echo get_option('video_destacado_active');  ?>" name="video_destacado_active">
 
             <?php
                 $settings_update = $_GET['settings-updated'];
-                echo $settings_update;
+                if ($settings_update) {
+                    update_option( 'video_destacado_active', 'disable' );
+                }
 
-                update_option( 'video_destacado_active', 'active' );
-
-                echo get_option('video_destacado_active');
+                if( get_option('video_destacado_active') === 'active'){
+                    $post_types = get_post_types( array( 'public' => true ) );
+                    foreach ( $post_types as $post_type ) {
+                        register_setting( 'video-destacado-settings-group', 'video_destacado_'.$post_type );
+                        update_option( 'video_destacado_'.$post_type, $post_type );
+                    }
+                }
 
             ?>
 
@@ -85,6 +94,4 @@
 	</div>
 	<?php
 	}
-
 ?>
-

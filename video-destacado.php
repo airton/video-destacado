@@ -12,37 +12,29 @@ Author URI: http://www.vancindesign.com.br
 /*
 * Settings
 */
-include_once 'video-destacado-settings.php';
+include_once ('video-destacado-settings.php');
 
 add_action( 'add_meta_boxes', 'video_add_metaboxes' );
 function video_add_metaboxes(){
-
     $post_types = get_post_types( array( 'public' => true ) );
     foreach ( $post_types as $post_type ) {
-    	if ( get_option('video_destacado_'.$post_type) ) {
-            add_meta_box( 'video_destaque_metabox', 'Vídeo Destacado', 'video_destaque_metabox', $post_type, 'side', 'high' );
+        if ( get_option('video_destacado_'.$post_type) ) {
+            add_meta_box( 'video_destaque_metabox', 'Vídeo Destacado', 'video_destaque_metabox', $post_type, 'side', 'default' );
         }
     }
 }
 function video_destaque_metabox(){
-        $values         = get_post_custom( $post->ID );
-        $id_video       = isset( $values['id_video'] ) ? esc_attr( $values['id_video'][0] ) : '';
-        $width_video    = isset( $values['width_video'] ) ? esc_attr( $values['width_video'][0] ) : '';
-        $height_video   = isset( $values['height_video'] ) ? esc_attr( $values['height_video'][0] ) : '';
-
-
-      /*$titulo_video   = isset( $values['titulo_video'] ) ? esc_attr( $values['titulo_video'][0] ) : '';
-        $desc_video     = isset( $values['desc_video'] ) ? esc_attr( $values['desc_video'][0] ) : '';*/
-        wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
-
+    $values         = get_post_custom( $post->ID );
+    $id_video       = isset( $values['id_video'] ) ? esc_attr( $values['id_video'][0] ) : '';
+    $width_video    = isset( $values['width_video'] ) ? esc_attr( $values['width_video'][0] ) : '';
+    $height_video   = isset( $values['height_video'] ) ? esc_attr( $values['height_video'][0] ) : '';
+    wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
     ?>
 
         <img style="<?php if(empty($id_video)){echo 'display: none;' ;} else {echo 'display: block' ;}  ?>" class="thumb" src="http://img.youtube.com/vi/<?php echo $id_video; ?>/0.jpg" alt="<?php echo $titulo_video; ?>" />
 
         <ul id='video-destaque'>
             <li><span>ID do Vídeo:</span> <input type="text" id="id_video" name="id_video" value="<?php echo $id_video; ?>" /><small>Ex: www.youtube.com/watch?v=<b>XdMD4LrC4wY</b></small></li>
-<!--        <li><span>Título:</span> <input type="text" id="titulo_video" name="titulo_video" value="<? //echo $titulo_video ?>" /></li>
-            <li><span>Descrição:</span> <input type="text" id="desc_video" name="desc_video" value="<? //echo $desc_video ?>" /></li> -->
             <li>
                 <div class="vd-options">
                     <a href="#">More Options</a>
@@ -60,13 +52,16 @@ function video_destaque_metabox(){
                     </div>
                 </div>
             </li>
-            <li><input type="button" tabindex="3" value="Adicionar" class="button add"><input type="button" tabindex="3" value="Remover" class="button del"></li>
+            <li>
+                <!-- <input type="button" tabindex="3" value="Adicionar" class="button add">
+                <input type="button" tabindex="3" value="Remover" class="button del"> -->
+                <?php submit_button('Adicionar', 'secondary small', 'add', false); ?>
+                <?php submit_button('Remover', 'secondary small', 'del', false); ?>
+            </li>
 
-            <?php echo get_post_type( $post ); ?>
+
         </ul>
-
   <?php
-
 }
 
 add_action( 'save_post', 'video_destaque_metabox_save' );
@@ -88,9 +83,6 @@ function video_destaque_metabox_save( $post_id ){
     update_post_meta( $post_id, 'id_video', wp_kses( $_POST['id_video'], $allowed ) );
     update_post_meta( $post_id, 'width_video', wp_kses( $_POST['width_video'], $allowed ) );
     update_post_meta( $post_id, 'height_video', wp_kses( $_POST['height_video'], $allowed ) );
-    /*update_post_meta( $post_id, 'titulo_video', wp_kses( $_POST['titulo_video'], $allowed ) );
-    update_post_meta( $post_id, 'desc_video', wp_kses( $_POST['desc_video'], $allowed ) );*/
-
 }
 
 function video_destacado(){
@@ -119,5 +111,3 @@ function video_destacado_styles() {
 }
 add_action('admin_print_scripts', 'vide_destacado_scripts');
 add_action('admin_print_styles', 'video_destacado_styles');
-
-?>
