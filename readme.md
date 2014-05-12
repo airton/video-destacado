@@ -1,4 +1,4 @@
-# [Vídeo Destacado](#video-destacado) #
+# Vídeo Destacado #
 
 [![](https://p.simg.uol.com.br/out/pagseguro/i/botoes/doacoes/209x48-doar-assina.gif)](https://pagseguro.uol.com.br/checkout/v2/donation.html?currency=BRL&receiverEmail=chapolinsk@hotmail.com)
 
