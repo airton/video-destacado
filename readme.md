@@ -16,7 +16,7 @@ Insert a video posted to Youtube for posts, pages and custom post types.
 
 ## How to use ##
 
-**Inserir o seguinte código dentro do loop**
+**Insert in your template page**
  
 ```
 <?php video_destacado(); ?>
@@ -27,19 +27,19 @@ Insert a video posted to Youtube for posts, pages and custom post types.
 ```
 <?php
     
-    // The Query
-    query_posts( $args );
+  // The Query
+  query_posts( $args );
+  
+  // The Loop
+  while ( have_posts() ) : the_post();
     
-    // The Loop
-    while ( have_posts() ) : the_post();
-    	
-    	video_destacado();
-    
-    endwhile;
-    
-    // Reset Query
-    wp_reset_query();
-    
+    video_destacado();
+  
+  endwhile;
+  
+  // Reset Query
+  wp_reset_query();
+  
 ?>
 ```
 
@@ -50,6 +50,8 @@ Insert a video posted to Youtube for posts, pages and custom post types.
 * Thumbnail preview now injected above the ID list, uses HTTPS and proper escaping
 * Enqueued admin JS/CSS via `admin_enqueue_scripts` (replacing deprecated hooks)
 * Rebuilt settings page with the Settings API and dropped legacy activation toggle
+* Add Settings link in Plugins page action links
+* Enable post & page by default on activation
 
 ## Version 1.6.0 ##
 Cosmetic changes

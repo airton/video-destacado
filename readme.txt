@@ -56,7 +56,7 @@ wp_reset_query();
 
 = How to display the video in the post? =
 
-Inserir o seguinte código dentro do loop
+Insert in your template page
 <code><?php video_destacado(); ?></code>
 
 = You can seugerir modifications and ideas for this plugin? =
@@ -74,6 +74,8 @@ Sure you can, go to this link [Featured Video] (https://github.com/airton/video-
 * Thumbnail preview now injected above the ID list, uses HTTPS and proper escaping
 * Enqueued admin JS/CSS via `admin_enqueue_scripts` (replacing deprecated hooks)
 * Rebuilt settings page with the Settings API and dropped legacy activation toggle
+* Add Settings link in Plugins page action links
+* Enable post & page by default on activation
 
 = 1.6.0 =
 Cosmetic changes

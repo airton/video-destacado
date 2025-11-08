@@ -16,6 +16,22 @@ Author URI: http://www.airtonvancin.com
 * Settings
 */
 require_once plugin_dir_path( __FILE__ ) . 'video-destacado-settings.php';
+
+// Activation hook: enable default post types (post & page)
+register_activation_hook( __FILE__, 'video_destacado_activate' );
+/**
+ * Plugin activation callback.
+ * Sets default enabled post types to 'post' and 'page'.
+ */
+function video_destacado_activate() {
+    $default_types = array( 'post', 'page' );
+    foreach ( $default_types as $pt ) {
+        $option_name = 'video_destacado_' . $pt;
+        if ( false === get_option( $option_name ) ) {
+            update_option( $option_name, 1 );
+        }
+    }
+}
 /**
  * Add 'Settings' link to the plugin action links on the Plugins page.
  */
