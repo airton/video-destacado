@@ -3,7 +3,7 @@
 /*
 Plugin Name: Vídeo Destacado
 Description: Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
-Version: 1.0
+Version: 1.6.0
 License: GPL
 Author: Airton Vancin Junior
 Author URI: http://www.vancindesign.com.br
