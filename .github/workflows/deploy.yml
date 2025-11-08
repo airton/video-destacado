@@ -1,0 +1,36 @@
+name: Deploy to WordPress.org
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # Necessário para gerar as notas de release
+
+    - name: Get plugin version from file
+      id: get_version
+      run: |
+        VERSION=$(grep -i "Version:" video-destacado.php | awk -F' ' '{print $2}' | tr -d '\r')
+        echo "plugin_version=${VERSION}" >> $GITHUB_OUTPUT
+
+    - name: Create GitHub Release and Tag
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v${{ steps.get_version.outputs.plugin_version }}
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: WordPress Plugin Deploy
+      uses: 10up/action-wordpress-plugin-deploy@stable
+      env:
+        SVN_USERNAME: ${{ secrets.WP_ORG_USERNAME }}
+        SVN_PASSWORD: ${{ secrets.WP_ORG_PASSWORD }}
+        SLUG: video-destacado
