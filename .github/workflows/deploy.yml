@@ -15,11 +15,6 @@ jobs:
         fetch-depth: 0 # Necessário para gerar as notas de release
 
 
-    - name: Get plugin version from file
-      id: get_version
-      run: |
-        VERSION=$(grep -i "Version:" video-destacado.php | awk -F' ' '{print $2}' | tr -d '\r')
-        echo "plugin_version=${VERSION}" >> $GITHUB_OUTPUT
 
 
     - name: WordPress Plugin Deploy
