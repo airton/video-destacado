@@ -1,18 +1,21 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 
 /*
 Plugin Name: Vídeo Destacado
 Description: Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
-Version: 1.6.0
+Version: 1.7.0
 License: GPL
-Author: Airton Vancin Junior
-Author URI: http://www.vancindesign.com.br
+Author: @airton
+Author URI: http://www.airtonvancin.com
 */
 
 /*
 * Settings
 */
-include_once ('video-destacado-settings.php');
+require_once plugin_dir_path( __FILE__ ) . 'video-destacado-settings.php';
 
 add_action( 'add_meta_boxes', 'video_add_metaboxes' );
 function video_add_metaboxes(){
@@ -24,14 +27,15 @@ function video_add_metaboxes(){
     }
 }
 function video_destaque_metabox(){
+    global $post;
     $values         = get_post_custom( $post->ID );
     $id_video       = isset( $values['id_video'] ) ? esc_attr( $values['id_video'][0] ) : '';
     $width_video    = isset( $values['width_video'] ) ? esc_attr( $values['width_video'][0] ) : '';
     $height_video   = isset( $values['height_video'] ) ? esc_attr( $values['height_video'][0] ) : '';
-    wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
+    wp_nonce_field( 'video_destacado_nonce_action', 'video_destacado_nonce' );
     ?>
 
-        <img style="<?php if(empty($id_video)){echo 'display: none;' ;} else {echo 'display: block' ;}  ?>" class="thumb" src="http://img.youtube.com/vi/<?php echo $id_video; ?>/0.jpg" alt="<?php echo $titulo_video; ?>" />
+        <img style="<?php echo empty( $id_video ) ? 'display: none;' : 'display: block;'; ?>" class="thumb" src="<?php echo esc_url( 'https://img.youtube.com/vi/' . $id_video . '/0.jpg' ); ?>" alt="<?php echo esc_attr( get_the_title( $post->ID ) ); ?>" />
 
         <ul id='video-destaque'>
             <li><span>ID do Vídeo:</span> <input type="text" id="id_video" name="id_video" value="<?php echo $id_video; ?>" /><small>Ex: www.youtube.com/watch?v=<b>XdMD4LrC4wY</b></small></li>
@@ -53,39 +57,46 @@ function video_destaque_metabox(){
                 </div>
             </li>
             <li>
-                <!-- <input type="button" tabindex="3" value="Adicionar" class="button add">
-                <input type="button" tabindex="3" value="Remover" class="button del"> -->
-                <?php submit_button('Adicionar', 'secondary small', 'add', false); ?>
-                <?php submit_button('Remover', 'secondary small', 'del', false); ?>
+                <input type="submit" name="add" class="button add" value="<?php echo esc_attr__( 'Adicionar', 'video-destacado' ); ?>" />
+                <input type="submit" name="del" class="button del" value="<?php echo esc_attr__( 'Remover', 'video-destacado' ); ?>" />
             </li>
-
-
         </ul>
   <?php
 }
 
 add_action( 'save_post', 'video_destaque_metabox_save' );
-function video_destaque_metabox_save( $post_id ){
-    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+/**
+ * Save meta box data.
+ *
+ * @param int $post_id Post ID.
+ */
+function video_destaque_metabox_save( $post_id ) {
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+    if ( ! isset( $_POST['video_destacado_nonce'] ) || ! wp_verify_nonce( $_POST['video_destacado_nonce'], 'video_destacado_nonce_action' ) ) {
+        return;
+    }
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
 
-    if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
-
-    if( !current_user_can( 'edit_post' ) ) return;
-
-    $allowed = array(
-    'a' => array(
-    'href' => array()
-    )
-    );
-
-    if( isset( $_POST['texto_meta_box'] ) )
-    update_post_meta( $post_id, 'texto_meta_box', wp_kses( $_POST['texto_meta_box'], $allowed ) );
-    update_post_meta( $post_id, 'id_video', wp_kses( $_POST['id_video'], $allowed ) );
-    update_post_meta( $post_id, 'width_video', wp_kses( $_POST['width_video'], $allowed ) );
-    update_post_meta( $post_id, 'height_video', wp_kses( $_POST['height_video'], $allowed ) );
+    if ( isset( $_POST['id_video'] ) ) {
+        $id_video = sanitize_text_field( wp_unslash( $_POST['id_video'] ) );
+        update_post_meta( $post_id, 'id_video', $id_video );
+    }
+    if ( isset( $_POST['width_video'] ) ) {
+        $width_video = intval( $_POST['width_video'] );
+        update_post_meta( $post_id, 'width_video', $width_video );
+    }
+    if ( isset( $_POST['height_video'] ) ) {
+        $height_video = intval( $_POST['height_video'] );
+        update_post_meta( $post_id, 'height_video', $height_video );
+    }
 }
 
 function video_destacado(){
+    global $post;
     $values = get_post_custom( $post->ID );
     $id_video = isset( $values['id_video'] ) ? esc_attr( $values['id_video'][0] ) : '';
 
@@ -94,20 +105,34 @@ function video_destacado(){
     $height_video = isset( $values['height_video'] ) ? esc_attr( $values['height_video'][0] ) : '';
     if(empty($height_video)){ $height_video = 315; }
 
-    if(!empty($id_video)):
-    $iframe = "<iframe width='".$width_video."' height='".$height_video."' src='http://www.youtube.com/embed/".$id_video."' frameborder='0' allowfullscreen></iframe>";
-    echo $iframe;
-    endif;
+    if ( ! empty( $id_video ) ) {
+        printf(
+            '<iframe width="%1$s" height="%2$s" src="%3$s" frameborder="0" allowfullscreen></iframe>',
+            esc_attr( $width_video ),
+            esc_attr( $height_video ),
+            esc_url( 'https://www.youtube.com/embed/' . $id_video )
+        );
+    }
 }
 
-function vide_destacado_scripts() {
-	wp_register_script('my-script', plugins_url('video-destacado') . '/js/vd-admin.js');
-	wp_enqueue_script('my-script');
-	//wp_enqueue_script('jquery');
+// Enqueue admin scripts and styles.
+add_action( 'admin_enqueue_scripts', 'video_destacado_admin_assets' );
+/**
+ * Enqueue admin scripts and styles in the WordPress admin.
+ */
+function video_destacado_admin_assets() {
+    $plugin_url = plugin_dir_url( __FILE__ );
+    wp_enqueue_script(
+        'vd-admin-js',
+        $plugin_url . 'js/vd-admin.js',
+        array( 'jquery' ),
+        '1.0',
+        true
+    );
+    wp_enqueue_style(
+        'vd-admin-css',
+        $plugin_url . 'css/vd-admin.css',
+        array(),
+        '1.0'
+    );
 }
-function video_destacado_styles() {
-	wp_register_style('my-css', plugins_url('video-destacado') . '/css/vd-admin.css');
-	wp_enqueue_style('my-css');
-}
-add_action('admin_print_scripts', 'vide_destacado_scripts');
-add_action('admin_print_styles', 'video_destacado_styles');

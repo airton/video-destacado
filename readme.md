@@ -18,10 +18,13 @@ Insert a video posted to Youtube for posts, pages and custom post types.
 
 **Inserir o seguinte código dentro do loop**
  
-<code><?php video_destacado(); ?></code>
+```
+<?php video_destacado(); ?>
+```
 
 **Ex:**
 
+```
 <?php
     
     // The Query
@@ -38,6 +41,15 @@ Insert a video posted to Youtube for posts, pages and custom post types.
     wp_reset_query();
     
 ?>
+```
+
+## Version 1.7.0 ##
+* Added direct-access guard (`ABSPATH`) and switched includes to `plugin_dir_path()`
+* Refactored meta-box nonce, sanitization and `save_post` logic
+* Changed Add/Remove controls to real submit buttons so the post form saves the meta
+* Thumbnail preview now injected above the ID list, uses HTTPS and proper escaping
+* Enqueued admin JS/CSS via `admin_enqueue_scripts` (replacing deprecated hooks)
+* Rebuilt settings page with the Settings API and dropped legacy activation toggle
 
 ## Version 1.6.0 ##
 Cosmetic changes
@@ -75,4 +87,4 @@ You should have received a copy of the GNU General Public License along with Nom
 **Support**
 
 - [@airtonvancin](https://twitter.com/airtonvancin)
-- [Vancin Design](http://www.airtonvancin.com/)
+- [Site](http://www.airtonvancin.com/)
