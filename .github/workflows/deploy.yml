@@ -14,6 +14,11 @@ jobs:
       with:
         fetch-depth: 0 # Necessário para gerar as notas de release
 
+    - name: WordPress.org readme parser
+      uses: 10up/action-wordpress-plugin-asset-update@stable
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Get plugin version from file
       id: get_version
       run: |

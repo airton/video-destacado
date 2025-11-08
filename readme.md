@@ -1,6 +1,6 @@
 # Vídeo Destacado #
 
-[![](https://p.simg.uol.com.br/out/pagseguro/i/botoes/doacoes/209x48-doar-assina.gif)](https://pagseguro.uol.com.br/checkout/v2/donation.html?currency=BRL&receiverEmail=chapolinsk@hotmail.com)
+[![](👋 Donate)](https://wordpress.org/plugins/video-destacado/#:~:text=Donate%20to%20this%20plugin)
 
 Link for page the wordpress plugin
 [http://wordpress.org/plugins/video-destacado/](http://wordpress.org/plugins/video-destacado/)
@@ -22,7 +22,7 @@ Insert a video posted to Youtube for posts, pages and custom post types.
 
 **Ex:**
 
-    <?php
+<?php
     
     // The Query
     query_posts( $args );
@@ -37,13 +37,16 @@ Insert a video posted to Youtube for posts, pages and custom post types.
     // Reset Query
     wp_reset_query();
     
-    ?>
+?>
 
 
 ## Version 1.0 ##
 Add page settings
 
 Settings > Vídeo Destacado
+
+## Version 1.6.0 ##
+Cosmetic changes
 
 ## Version 0.2 ##
 
@@ -73,4 +76,4 @@ You should have received a copy of the GNU General Public License along with Nom
 **Support**
 
 - [@airtonvancin](https://twitter.com/airtonvancin)
-- [Vancin Design](http://www.vancindesign.com.br/)
+- [Vancin Design](http://www.airtonvancin.com/)
