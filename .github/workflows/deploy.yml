@@ -21,13 +21,6 @@ jobs:
         VERSION=$(grep -i "Version:" video-destacado.php | awk -F' ' '{print $2}' | tr -d '\r')
         echo "plugin_version=${VERSION}" >> $GITHUB_OUTPUT
 
-    - name: Create GitHub Release and Tag
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: v${{ steps.get_version.outputs.plugin_version }}
-        generate_release_notes: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: WordPress Plugin Deploy
       uses: 10up/action-wordpress-plugin-deploy@stable
