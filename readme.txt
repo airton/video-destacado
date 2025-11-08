@@ -1,10 +1,10 @@
 === Vídeo Destacado ===
 Contributors: airtonvancin
-Donate link: http://www.vancindesign.com.br/
+Donate link: https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=93975544-d3277b00-b729-47a7-bfa0-9a19d4e5afec
 Tags: video, destacado, destaque, post, page, post type, youtube, adicionar, add, vídeo post
 Requires at least: 3.0
 Tested up to: a 3.9
-Stable tag: 1.0
+Stable tag: 1.6.0
 License: GPLv2 or later
 Insert a video posted to Youtube for posts, pages and custom post types
 
@@ -17,8 +17,11 @@ Insert a video posted to Youtube for posts, pages and custom post types
 
 == Installation ==
 
-1. Unzip the file to the plugins folder of the 'wp-content/plugins/' directory inside of WordPress
-2. Keep the directory structure of the file, all extracted files should exist in 'wp-content/plugins/video-destacado/'
+1. Unzip the file to the plugins folder of the `wp-content/plugins/` directory inside of WordPress
+2. Keep the directory structure of the file, all extracted files should exist in `wp-content/plugins/video-destacado/`
+
+= 1.6.0 =
+Cosmetic changes
 
 = 1.0 =
 add page settings
@@ -71,11 +74,14 @@ Inserir o seguinte código dentro do loop
 
 = You can seugerir modifications and ideas for this plugin? =
 
-Sure you can, go to this link [Featured Video] (http://www.vancindesign.com.br/contatos.php)
+Sure you can, go to this link [Featured Video] (http://www.airtonvancin.com/contatos.php)
 
 
 
 == Upgrade Notice ==
+
+= 1.6.0 =
+Cosmetic changes
 
 = 1.0 =
 add page settings
@@ -91,6 +97,9 @@ Highlighted in the video display post, page and custom post types.
 
 == Changelog ==
 
+= 1.6.0 =
+Cosmetic changes
+
 = 1.0 =
 add page settings
 Settings > Vídeo Destacado
@@ -100,7 +109,6 @@ Add width and height of the player
 
 = 0.1 =
 Highlighted in the video display post, page and custom post types.
-
 
 
 
@@ -114,6 +122,6 @@ You should have received a copy of the GNU General Public License along with Nom
 
 == Support ==
 
-* Vancin Design [Site](http://www.vancindesign.com.br/)
+* Vancin Design [Site](http://www.airtonvancin.com/)
 * Twitter [Site](https://twitter.com/airtonvancin)
 * GitHub [Github](https://github.com/airton/video-destacado)

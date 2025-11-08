@@ -1,6 +1,6 @@
 # Vídeo Destacado #
 
-[![](👋 Donate)](https://wordpress.org/plugins/video-destacado/#:~:text=Donate%20to%20this%20plugin)
+[👋 Donate](https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=93975544-d3277b00-b729-47a7-bfa0-9a19d4e5afec)
 
 Link for page the wordpress plugin
 [http://wordpress.org/plugins/video-destacado/](http://wordpress.org/plugins/video-destacado/)
@@ -39,14 +39,13 @@ Insert a video posted to Youtube for posts, pages and custom post types.
     
 ?>
 
+## Version 1.6.0 ##
+Cosmetic changes
 
 ## Version 1.0 ##
 Add page settings
 
 Settings > Vídeo Destacado
-
-## Version 1.6.0 ##
-Cosmetic changes
 
 ## Version 0.2 ##
 
