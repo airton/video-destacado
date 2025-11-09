@@ -21,34 +21,29 @@ Insert a video posted to Youtube for posts, pages and custom post types
 2. Keep the directory structure of the file, all extracted files should exist in `wp-content/plugins/video-destacado/`
 
 
-= Enter the following code inside the loop =
-<code><?php video_destacado(); ?></code>
-
-= Ex: =
-<code>
+== Usage ==
+To display the featured video in your theme templates, call the function inside The Loop or anywhere you need it:
+```php
+<?php video_destacado(); ?>
+```
+Or, for example, inside a custom query loop:
+```php
 <?php
-
 // The Query
 query_posts( $args );
-
 // The Loop
 while ( have_posts() ) : the_post();
-
-	video_destacado();
-
+    video_destacado();
 endwhile;
-
 // Reset Query
 wp_reset_query();
-
 ?>
-</code>
+```
 
 
 == Screenshots ==
-
-1. As will be shown in the video featured admin
-2. Settings page
+1. Featured Video meta box in the post editor
+2. Vídeo Destacado settings page under Settings menu
 
 
 
@@ -66,14 +61,13 @@ Sure you can, go to this link [Featured Video] (https://github.com/airton/video-
 
 
 == Upgrade Notice ==
-
-=== 1.7.1 ===
+= 1.7.1 =
 * Limited tags to 5 to comply with WordPress.org guidelines
 * Fixed "Tested up to" field to use a valid WordPress version
 * Added Settings link in the Plugins page action links
 * Enabled post & page by default on activation
 
-=== 1.7.0 ===
+= 1.7.0 =
 * Added direct-access guard (`ABSPATH`) and switched includes to `plugin_dir_path()`
 * Refactored meta-box nonce, sanitization and `save_post` logic
 * Changed Add/Remove controls to real submit buttons so the post form saves the meta
@@ -100,14 +94,13 @@ Highlighted in the video display post, page and custom post types.
 
 
 == Changelog ==
-
-=== 1.7.1 ===
+= 1.7.1 =
 * Limited tags to 5 to comply with WordPress.org guidelines
 * Fixed "Tested up to" field to use a valid WordPress version
 * Added Settings link in the Plugins page action links
 * Enabled post & page by default on activation
 
-=== 1.7.0 ===
+= 1.7.0 =
 * Added direct-access guard (`ABSPATH`) and switched includes to `plugin_dir_path()`
 * Refactored meta-box nonce, sanitization and `save_post` logic
 * Changed Add/Remove controls to real submit buttons so the post form saves the meta
@@ -116,18 +109,16 @@ Highlighted in the video display post, page and custom post types.
 * Rebuilt settings page with the Settings API and dropped legacy activation toggle
 
 = 1.6.0 =
-Cosmetic changes
+* Cosmetic changes
 
 = 1.0 =
-add page settings
+* Add page settings (Settings → Vídeo Destacado)
 
-Settings > Vídeo Destacado
+= 0.2 =
+* Add width and height of the player
 
-= Version 0.2 =
-Add width and height of the player
-
-= Version 0.1 =
-Highlighted in the video display post, page and custom post types.
+= 0.1 =
+* Highlighted in the video display post, page and custom post types.
 
 
 
