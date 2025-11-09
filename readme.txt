@@ -1,9 +1,9 @@
 === Vídeo Destacado ===
 Contributors: airtonvancin
 Donate link: https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=93975544-d3277b00-b729-47a7-bfa0-9a19d4e5afec
-Tags: video, destacado, destaque, post, page, post type, youtube, adicionar, add, vídeo post
+Tags: video, destacado, destaque, post, page
 Requires at least: 3.0
-Tested up to: a 6.8.3
+Tested up to: 6.9
 Stable tag: 1.7.0
 License: GPLv2 or later
 Insert a video posted to Youtube for posts, pages and custom post types
