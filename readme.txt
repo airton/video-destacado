@@ -93,33 +93,6 @@ Highlighted in the video display post, page and custom post types.
 
 
 
-== Changelog ==
-= 1.7.1 =
-* Limited tags to 5 to comply with WordPress.org guidelines
-* Fixed "Tested up to" field to use a valid WordPress version
-* Added Settings link in the Plugins page action links
-* Enabled post & page by default on activation
-
-= 1.7.0 =
-* Added direct-access guard (`ABSPATH`) and switched includes to `plugin_dir_path()`
-* Refactored meta-box nonce, sanitization and `save_post` logic
-* Changed Add/Remove controls to real submit buttons so the post form saves the meta
-* Thumbnail preview now injected above the ID list, uses HTTPS and proper escaping
-* Enqueued admin JS/CSS via `admin_enqueue_scripts` (replacing deprecated hooks)
-* Rebuilt settings page with the Settings API and dropped legacy activation toggle
-
-= 1.6.0 =
-* Cosmetic changes
-
-= 1.0 =
-* Add page settings (Settings → Vídeo Destacado)
-
-= 0.2 =
-* Add width and height of the player
-
-= 0.1 =
-* Highlighted in the video display post, page and custom post types.
-
 
 
 == License ==
