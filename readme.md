@@ -7,12 +7,32 @@ Link for page the wordpress plugin
 
 # Description #
 
-Insert a video posted to Youtube for posts, pages and custom post types.
+Vídeo Destacado lets you feature a YouTube video on your posts, pages, or any public custom post type.
+Simply enter the YouTube video ID in the dedicated meta box, preview the thumbnail, and set custom width and height.
+
+Features:
+* Enable on selected post types via Settings
+* Thumbnail preview and real-time feedback in the editor
+* Customizable player dimensions
+* Secure nonce validation and input sanitization
+* Properly enqueues admin scripts and styles
 
 # Installation #
 
-1. Unzip the file to the plugins folder of the 'wp-content/plugins/' directory inside of WordPress
-2. Keep the directory structure of the file, all extracted files should exist in 'wp-content/plugins/video-destacado/'
+1. Visit **Plugins > Add New**.
+2. Search for **Video Destacado**.
+3. Install and activate the Video Destacado plugin.
+
+= Manual installation =
+
+1. Upload the entire `video-destacado` folder to the `/wp-content/plugins/` directory.
+2. Visit **Plugins**.
+3. Activate the Video Destacado plugin.
+
+= After activation =
+
+1. Visit the new **Settings > Video Destacado** menu.
+2. Enable the individual modules you would like to use.
 
 ## How to use ##
 
@@ -42,14 +62,16 @@ Insert a video posted to Youtube for posts, pages and custom post types.
   
 ?>
 ```
+## 1.7.2 ##
+* Revamped Description section in readme.txt for clarity
+* Normalized readme.txt to WordPress plugin readme standard
+* Removed duplicate Changelog section
 
-## Version 1.7.1 ##
+## 1.7.1 ##
 * Limited tags to 5 to comply with WordPress.org guidelines
 * Fixed “Tested up to” field to use a valid WordPress version
-* Added Settings link in the Plugins page action links
-* Enabled post & page by default on activation
 
-## Version 1.7.0 ##
+## 1.7.0 ##
 * Added direct-access guard (`ABSPATH`) and switched includes to `plugin_dir_path()`
 * Refactored meta-box nonce, sanitization and `save_post` logic
 * Changed Add/Remove controls to real submit buttons so the post form saves the meta
@@ -59,19 +81,19 @@ Insert a video posted to Youtube for posts, pages and custom post types.
 * Add Settings link in Plugins page action links
 * Enable post & page by default on activation
 
-## Version 1.6.0 ##
+## 1.6.0 ##
 Cosmetic changes
 
-## Version 1.0 ##
+## 1.0 ##
 Add page settings
 
 Settings > Vídeo Destacado
 
-## Version 0.2 ##
+## 0.2 ##
 
 Add <code>width</code> and <code>height</code> of the player
 
-## Version 0.1 ##
+## 0.1 ##
 Highlighted in the video display post, page and custom post types.
 
 
@@ -94,5 +116,4 @@ You should have received a copy of the GNU General Public License along with Nom
 
 **Support**
 
-- [@airtonvancin](https://twitter.com/airtonvancin)
-- [Site](http://www.airtonvancin.com/)
+- [Github Issue](https://github.com/airton/video-destacado/issues)
