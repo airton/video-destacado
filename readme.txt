@@ -4,7 +4,7 @@ Donate link: https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=9397554
 Tags: video, destacado, destaque, post, page
 Requires at least: 3.0
 Tested up to: 6.9
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 License: GPLv2 or later
 Insert a video posted to Youtube for posts, pages and custom post types
 
@@ -67,7 +67,13 @@ Sure you can, go to this link [Featured Video] (https://github.com/airton/video-
 
 == Upgrade Notice ==
 
-= 1.7.0 =
+=== 1.7.1 ===
+* Limited tags to 5 to comply with WordPress.org guidelines
+* Fixed "Tested up to" field to use a valid WordPress version
+* Added Settings link in the Plugins page action links
+* Enabled post & page by default on activation
+
+=== 1.7.0 ===
 * Added direct-access guard (`ABSPATH`) and switched includes to `plugin_dir_path()`
 * Refactored meta-box nonce, sanitization and `save_post` logic
 * Changed Add/Remove controls to real submit buttons so the post form saves the meta
@@ -95,7 +101,13 @@ Highlighted in the video display post, page and custom post types.
 
 == Changelog ==
 
-= 1.7.0 =
+=== 1.7.1 ===
+* Limited tags to 5 to comply with WordPress.org guidelines
+* Fixed "Tested up to" field to use a valid WordPress version
+* Added Settings link in the Plugins page action links
+* Enabled post & page by default on activation
+
+=== 1.7.0 ===
 * Added direct-access guard (`ABSPATH`) and switched includes to `plugin_dir_path()`
 * Refactored meta-box nonce, sanitization and `save_post` logic
 * Changed Add/Remove controls to real submit buttons so the post form saves the meta

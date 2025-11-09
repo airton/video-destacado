@@ -43,6 +43,12 @@ Insert a video posted to Youtube for posts, pages and custom post types.
 ?>
 ```
 
+## Version 1.7.1 ##
+* Limited tags to 5 to comply with WordPress.org guidelines
+* Fixed “Tested up to” field to use a valid WordPress version
+* Added Settings link in the Plugins page action links
+* Enabled post & page by default on activation
+
 ## Version 1.7.0 ##
 * Added direct-access guard (`ABSPATH`) and switched includes to `plugin_dir_path()`
 * Refactored meta-box nonce, sanitization and `save_post` logic

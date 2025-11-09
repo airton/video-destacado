@@ -5,8 +5,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /*
 Plugin Name: Vídeo Destacado
-Description: Inserir um vídeo destacado do Youtube, para posts, páginas e custom post types
-Version: 1.7.0
+Description: Insert a featured YouTube video for posts, pages and custom post types
+Version: 1.7.1
 License: GPL
 Author: @airton
 Author URI: http://www.airtonvancin.com
