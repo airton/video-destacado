@@ -3,8 +3,8 @@ Contributors: airtonvancin
 Donate link: https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=93975544-d3277b00-b729-47a7-bfa0-9a19d4e5afec
 Tags: video, destacado, destaque, post, page, post type, youtube, adicionar, add, vídeo post
 Requires at least: 3.0
-Tested up to: a 3.9
-Stable tag: 1.6.0
+Tested up to: a 6.8.3
+Stable tag: 1.7.0
 License: GPLv2 or later
 Insert a video posted to Youtube for posts, pages and custom post types
 
@@ -20,19 +20,6 @@ Insert a video posted to Youtube for posts, pages and custom post types
 1. Unzip the file to the plugins folder of the `wp-content/plugins/` directory inside of WordPress
 2. Keep the directory structure of the file, all extracted files should exist in `wp-content/plugins/video-destacado/`
 
-= 1.6.0 =
-Cosmetic changes
-
-= 1.0 =
-add page settings
-
-Settings > Vídeo Destacado
-
-= Version 0.2 =
-Add width and height of the player
-
-= Version 0.1 =
-Highlighted in the video display post, page and custom post types.
 
 = Enter the following code inside the loop =
 <code><?php video_destacado(); ?></code>
@@ -69,45 +56,65 @@ wp_reset_query();
 
 = How to display the video in the post? =
 
-Inserir o seguinte código dentro do loop
+Insert in your template page
 <code><?php video_destacado(); ?></code>
 
 = You can seugerir modifications and ideas for this plugin? =
 
-Sure you can, go to this link [Featured Video] (http://www.airtonvancin.com/contatos.php)
+Sure you can, go to this link [Featured Video] (https://github.com/airton/video-destacado)
 
 
 
 == Upgrade Notice ==
+
+= 1.7.0 =
+* Added direct-access guard (`ABSPATH`) and switched includes to `plugin_dir_path()`
+* Refactored meta-box nonce, sanitization and `save_post` logic
+* Changed Add/Remove controls to real submit buttons so the post form saves the meta
+* Thumbnail preview now injected above the ID list, uses HTTPS and proper escaping
+* Enqueued admin JS/CSS via `admin_enqueue_scripts` (replacing deprecated hooks)
+* Rebuilt settings page with the Settings API and dropped legacy activation toggle
+* Add Settings link in Plugins page action links
+* Enable post & page by default on activation
 
 = 1.6.0 =
 Cosmetic changes
 
 = 1.0 =
 add page settings
+
 Settings > Vídeo Destacado
 
-= 0.2 =
+= Version 0.2 =
 Add width and height of the player
 
-= 0.1 =
+= Version 0.1 =
 Highlighted in the video display post, page and custom post types.
 
 
 
 == Changelog ==
 
+= 1.7.0 =
+* Added direct-access guard (`ABSPATH`) and switched includes to `plugin_dir_path()`
+* Refactored meta-box nonce, sanitization and `save_post` logic
+* Changed Add/Remove controls to real submit buttons so the post form saves the meta
+* Thumbnail preview now injected above the ID list, uses HTTPS and proper escaping
+* Enqueued admin JS/CSS via `admin_enqueue_scripts` (replacing deprecated hooks)
+* Rebuilt settings page with the Settings API and dropped legacy activation toggle
+
 = 1.6.0 =
 Cosmetic changes
 
 = 1.0 =
 add page settings
+
 Settings > Vídeo Destacado
 
-= 0.2 =
+= Version 0.2 =
 Add width and height of the player
 
-= 0.1 =
+= Version 0.1 =
 Highlighted in the video display post, page and custom post types.
 
 
@@ -122,6 +129,6 @@ You should have received a copy of the GNU General Public License along with Nom
 
 == Support ==
 
-* Vancin Design [Site](http://www.airtonvancin.com/)
-* Twitter [Site](https://twitter.com/airtonvancin)
+* Site [Site](http://www.airtonvancin.com/)
+* Twitter [Twitter](https://twitter.com/airtonvancin)
 * GitHub [Github](https://github.com/airton/video-destacado)

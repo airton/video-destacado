@@ -1,26 +1,33 @@
 //<![CDATA[
 jQuery(function($){
-    $('#video-destaque .button.add, #video-destaque .button[name=add]').bind('click', function(e){
-    	var id = $('#video-destaque #id_video').attr("value");
-    	if( id == "" ){
+    // Preview video thumbnail in meta box
+    $('#video-destaque .button.add').on('click', function(e) {
+        var $input = $('#video-destaque #id_video');
+        var id = $input.val().trim();
+        if ( ! id ) {
             e.preventDefault();
-    		$('#video-destaque #id_video').css({'border': '1px solid #aaa'}).focus();
-    	}else{
-    		$('#video_destaque_metabox .thumb').hide();
-    		$(this).parent().parent().before('<img class="thumb" src="http://img.youtube.com/vi/'+id+'/0.jpg" alt="titulo" />');
-    	}
-    });
-    $('#video-destaque .button.del, #video-destaque .button[name=del]').bind('click', function(e){
-
-        var id = $('#video-destaque #id_video').attr("value");
-        if( id == "" ){
-            e.preventDefault();
-            $('#video-destaque #id_video').css({'border': '1px solid #aaa'}).focus();
-        }else{
-            $('#video-destaque #id_video').val('');
+            $input.css({ border: '1px solid #aaa' }).focus();
+        } else {
+            // Remove existing thumbnail and insert new one above the list
             $('#video_destaque_metabox .thumb').remove();
+            var thumbHtml = '<img class="thumb" src="https://img.youtube.com/vi/' + encodeURIComponent( id ) + '/0.jpg" alt="" style="display:block;" />';
+            $('#video-destaque').before( thumbHtml );
+            // allow default submission to save meta
         }
-
+    });
+    // Remove video thumbnail and clear input
+    $('#video-destaque .button.del').on('click', function(e) {
+        var $input = $('#video-destaque #id_video');
+        var id = $input.val().trim();
+        if ( ! id ) {
+            e.preventDefault();
+            $input.css({ border: '1px solid #aaa' }).focus();
+        } else {
+            // Clear input, remove thumbnail, and submit form to save
+            $input.val('');
+            $('#video_destaque_metabox .thumb').remove();
+            // allow default submission to save meta
+        }
     });
     $('.vd-options a').click(function(event){
         event.preventDefault();
