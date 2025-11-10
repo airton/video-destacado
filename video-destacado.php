@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*
 Plugin Name: Vídeo Destacado
 Description: Insert a featured YouTube video for posts, pages and custom post types
-Version: 1.7.2
+Version: 1.7.3
 License: GPL
 Author: @airton
 Author URI: http://www.airtonvancin.com
