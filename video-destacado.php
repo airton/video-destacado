@@ -10,7 +10,17 @@ Version: 1.7.2
 License: GPL
 Author: @airton
 Author URI: http://www.airtonvancin.com
+Text Domain: video-destacado
+Domain Path: /languages
 */
+
+add_action( 'plugins_loaded', 'video_destacado_load_textdomain' );
+/**
+ * Load plugin textdomain.
+ */
+function video_destacado_load_textdomain() {
+    load_plugin_textdomain( 'video-destacado', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
 
 /*
 * Settings
@@ -56,7 +66,7 @@ function video_add_metaboxes(){
   $post_types = get_post_types( array( 'public' => true ) );
   foreach ( $post_types as $post_type ) {
     if ( get_option('video_destacado_'.$post_type) ) {
-      add_meta_box( 'video_destaque_metabox', 'Vídeo Destacado', 'video_destaque_metabox', $post_type, 'side', 'default' );
+      add_meta_box( 'video_destaque_metabox', __( 'Vídeo Destacado', 'video-destacado' ), 'video_destaque_metabox', $post_type, 'side', 'default' );
     }
   }
 }
@@ -72,21 +82,21 @@ function video_destaque_metabox(){
     <img style="<?php echo empty( $id_video ) ? 'display: none;' : 'display: block;'; ?>" class="thumb" src="<?php echo esc_url( 'https://img.youtube.com/vi/' . $id_video . '/0.jpg' ); ?>" alt="<?php echo esc_attr( get_the_title( $post->ID ) ); ?>" />
 
     <ul id='video-destaque'>
-      <li><span>ID do Vídeo:</span> <input type="text" id="id_video" name="id_video" value="<?php echo $id_video; ?>" /><small>Ex: www.youtube.com/watch?v=<b>XdMD4LrC4wY</b></small></li>
+      <li><span><?php esc_html_e( 'ID do Vídeo:', 'video-destacado' ); ?></span> <input type="text" id="id_video" name="id_video" value="<?php echo $id_video; ?>" /><small><?php esc_html_e( 'Ex: www.youtube.com/watch?v=', 'video-destacado' ); ?><b>XdMD4LrC4wY</b></small></li>
       <li>
         <div class="vd-options">
-          <a href="#">More Options</a>
+          <a href="#"><?php esc_html_e( 'More Options', 'video-destacado' ); ?></a>
         </div>
         <div class="vd-more">
           <div class="box">
-            <span>Width:</span>
+            <span><?php esc_html_e( 'Width:', 'video-destacado' ); ?></span>
             <input type="text" id="width_video" name="width_video" value="<?php echo $width_video; ?>" />
-            <small>Default: <b>560</b></small>
+            <small><?php esc_html_e( 'Default:', 'video-destacado' ); ?> <b>560</b></small>
           </div>
           <div class="box">
-            <span>Height:</span>
+            <span><?php esc_html_e( 'Height:', 'video-destacado' ); ?></span>
             <input type="text" id="height_video" name="height_video" value="<?php echo $height_video; ?>" />
-            <small>Default: <b>315</b></small>
+            <small><?php esc_html_e( 'Default:', 'video-destacado' ); ?> <b>315</b></small>
           </div>
         </div>
       </li>

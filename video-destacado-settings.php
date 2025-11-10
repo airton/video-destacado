@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     function video_destacado_settings() {
         // criamos a pagina de opções com esta função
-        add_options_page( 'Vídeo Destacado Settings', 'Vídeo Destacado', 'manage_options', 'video-destacado', 'video_destacado_settings_content' );
+        add_options_page( __( 'Vídeo Destacado Settings', 'video-destacado' ), __( 'Vídeo Destacado', 'video-destacado' ), 'manage_options', 'video-destacado', 'video_destacado_settings_content' );
 
         //call register settings function
         add_action( 'admin_init', 'video_destacado_register' );
