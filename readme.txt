@@ -4,7 +4,7 @@ Donate link: https://link.mercadopago.com.br/pluginswordpress
 Tags: video, destacado, destaque, post, page
 Requires at least: 3.0
 Tested up to: 6.9
-Stable tag: 1.7.4
+Stable tag: 1.7.5
 License: GPL-3.0-or-later
 
 Insert a video posted to Youtube for posts, pages and custom post types
@@ -22,23 +22,17 @@ Features:
 * Properly enqueues admin scripts and styles
 
 == Usage ==
-To display the featured video in your theme templates, call the function inside The Loop or anywhere you need it:
-```php
-<?php video_destacado(); ?>
-```
-Or, for example, inside a custom query loop:
-```php
-<?php
-// The Query
-query_posts( $args );
-// The Loop
-while ( have_posts() ) : the_post();
-    video_destacado();
-endwhile;
-// Reset Query
-wp_reset_query();
-?>
-```
+
+= Shortcode =
+To display the featured video in your post content, use the following shortcode:
+`[video-destacado]`
+
+To customize the dimensions, use the `width` and `height` attributes:
+`[video-destacado width=300 height=150]`
+
+= PHP Code =
+To display the featured video in your theme templates, add the following code to your theme's files (e.g., `single.php`, `page.php`) inside The Loop:
+`<?php video_destacado(); ?>`
 
 == Installation ==
 
@@ -64,8 +58,13 @@ wp_reset_query();
 = How to display the video in the post? =
 
 Insert in your template page
-```php
+* Shortcode
+```
 <?php video_destacado(); ?>
+```
+* PHP function
+```
+[video-destacado]
 ```
 
 = You can seugerir modifications and ideas for this plugin? =
@@ -77,6 +76,9 @@ Sure you can, go to this link [Featured Video] (https://github.com/airton/video-
 Sites must be built on PHP 5.6 or greater, but Jetpack always supports the latest version of PHP.
 
 == Changelog ==
+
+= 1.7.5 =
+* Feat: Add shortcode to display featured video.
 
 = 1.7.4 =
 * Fix: Address security warnings and update plugin version
