@@ -4,8 +4,8 @@ Donate link: https://link.mercadopago.com.br/pluginswordpress
 Tags: video, destacado, destaque, post, page
 Requires at least: 3.0
 Tested up to: 6.9
-Stable tag: 1.7.2
-License: GPLv2 or later
+Stable tag: 1.7.4
+License: GPL-3.0-or-later
 
 Insert a video posted to Youtube for posts, pages and custom post types
 
@@ -77,6 +77,16 @@ Sure you can, go to this link [Featured Video] (https://github.com/airton/video-
 Sites must be built on PHP 5.6 or greater, but Jetpack always supports the latest version of PHP.
 
 == Changelog ==
+
+= 1.7.4 =
+* Fix: Address security warnings and update plugin version
+* Fix: Escaping of video ID, width, and height in metabox input fields.
+* Fix: Missing unslash for nonce verification.
+* Fix: Missing sanitization for register_setting.
+
+= 1.7.3 =
+* Feature Make the plugin translatable
+
 = 1.7.2 =
 * Revamped Description section in readme.txt for clarity
 * Normalized readme.txt to WordPress plugin readme standard
@@ -116,19 +126,13 @@ Sites must be built on PHP 5.6 or greater, but Jetpack always supports the lates
 
 Vídeo Destacado is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published
 by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-Nome do teu Plugin is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+Vídeo Destacado is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-You should have received a copy of the GNU General Public License along with Nome do teu Plugin. If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License along with Vídeo Destacado. If not, see <http://www.gnu.org/licenses/>.
 
 == Support ==
 
 * Site [Site](http://www.airtonvancin.com/)
 * Twitter [Twitter](https://twitter.com/airtonvancin)
 * GitHub [Github](https://github.com/airton/video-destacado)
-
-== Upgrade Notice ==
-= 1.7.2 =
-* Revamped Description section in readme.txt for clarity
-* Normalized readme.txt to WordPress plugin readme standard
-* Removed duplicate Changelog section
 

@@ -6,8 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*
 Plugin Name: Vídeo Destacado
 Description: Insert a featured YouTube video for posts, pages and custom post types
-Version: 1.7.3
-License: GPL
+Version: 1.7.4
+License: GPL-3.0-or-later
 Author: @airton
 Author URI: http://www.airtonvancin.com
 Text Domain: video-destacado
@@ -73,16 +73,16 @@ function video_add_metaboxes(){
 function video_destaque_metabox(){
   global $post;
   $values         = get_post_custom( $post->ID );
-  $id_video       = isset( $values['id_video'] ) ? esc_attr( $values['id_video'][0] ) : '';
-  $width_video    = isset( $values['width_video'] ) ? esc_attr( $values['width_video'][0] ) : '';
-  $height_video   = isset( $values['height_video'] ) ? esc_attr( $values['height_video'][0] ) : '';
+  $id_video       = isset( $values['id_video'] ) ? $values['id_video'][0] : '';
+  $width_video    = isset( $values['width_video'] ) ? $values['width_video'][0] : '';
+  $height_video   = isset( $values['height_video'] ) ? $values['height_video'][0] : '';
   wp_nonce_field( 'video_destacado_nonce_action', 'video_destacado_nonce' );
   ?>
 
     <img style="<?php echo empty( $id_video ) ? 'display: none;' : 'display: block;'; ?>" class="thumb" src="<?php echo esc_url( 'https://img.youtube.com/vi/' . $id_video . '/0.jpg' ); ?>" alt="<?php echo esc_attr( get_the_title( $post->ID ) ); ?>" />
 
     <ul id='video-destaque'>
-      <li><span><?php esc_html_e( 'ID do Vídeo:', 'video-destacado' ); ?></span> <input type="text" id="id_video" name="id_video" value="<?php echo $id_video; ?>" /><small><?php esc_html_e( 'Ex: www.youtube.com/watch?v=', 'video-destacado' ); ?><b>XdMD4LrC4wY</b></small></li>
+      <li><span><?php esc_html_e( 'ID do Vídeo:', 'video-destacado' ); ?></span> <input type="text" id="id_video" name="id_video" value="<?php echo esc_attr( $id_video ); ?>" /><small><?php esc_html_e( 'Ex: www.youtube.com/watch?v=', 'video-destacado' ); ?><b>XdMD4LrC4wY</b></small></li>
       <li>
         <div class="vd-options">
           <a href="#"><?php esc_html_e( 'More Options', 'video-destacado' ); ?></a>
@@ -90,12 +90,12 @@ function video_destaque_metabox(){
         <div class="vd-more">
           <div class="box">
             <span><?php esc_html_e( 'Width:', 'video-destacado' ); ?></span>
-            <input type="text" id="width_video" name="width_video" value="<?php echo $width_video; ?>" />
+            <input type="text" id="width_video" name="width_video" value="<?php echo esc_attr( $width_video ); ?>" />
             <small><?php esc_html_e( 'Default:', 'video-destacado' ); ?> <b>560</b></small>
           </div>
           <div class="box">
             <span><?php esc_html_e( 'Height:', 'video-destacado' ); ?></span>
-            <input type="text" id="height_video" name="height_video" value="<?php echo $height_video; ?>" />
+            <input type="text" id="height_video" name="height_video" value="<?php echo esc_attr( $height_video ); ?>" />
             <small><?php esc_html_e( 'Default:', 'video-destacado' ); ?> <b>315</b></small>
           </div>
         </div>
@@ -118,7 +118,7 @@ function video_destaque_metabox_save( $post_id ) {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
       return;
     }
-    if ( ! isset( $_POST['video_destacado_nonce'] ) || ! wp_verify_nonce( $_POST['video_destacado_nonce'], 'video_destacado_nonce_action' ) ) {
+    if ( ! isset( $_POST['video_destacado_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['video_destacado_nonce'] ) ), 'video_destacado_nonce_action' ) ) {
       return;
     }
     if ( ! current_user_can( 'edit_post', $post_id ) ) {

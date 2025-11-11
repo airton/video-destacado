@@ -21,8 +21,18 @@ if ( ! defined( 'ABSPATH' ) ) {
         //register our settings
         $post_types = get_post_types( array( 'public' => true ) );
         foreach ( $post_types as $post_type ) {
-            register_setting( 'video-destacado-settings-group', 'video_destacado_' . $post_type );
+            register_setting( 'video-destacado-settings-group', 'video_destacado_' . $post_type, 'video_destacado_sanitize_checkbox' );
         }
+    }
+
+    /**
+     * Sanitize checkbox input.
+     *
+     * @param mixed $input Input value.
+     * @return int Sanitized value (1 or 0).
+     */
+    function video_destacado_sanitize_checkbox( $input ) {
+        return ( 1 == $input ) ? 1 : 0;
     }
 
 
