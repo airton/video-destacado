@@ -4,7 +4,7 @@ Donate link: https://link.mercadopago.com.br/pluginswordpress
 Tags: video, destacado, destaque, post, page
 Requires at least: 3.0
 Tested up to: 6.9
-Stable tag: 1.7.4
+Stable tag: 1.7.5
 License: GPL-3.0-or-later
 
 Insert a video posted to Youtube for posts, pages and custom post types
@@ -38,6 +38,14 @@ endwhile;
 // Reset Query
 wp_reset_query();
 ?>
+```
+You can also use the shortcode in your post content:
+```
+[video-destacado]
+```
+To customize the dimensions, use the width and height attributes:
+```
+[video-destacado width=300 height=150]
 ```
 
 == Installation ==
@@ -77,6 +85,9 @@ Sure you can, go to this link [Featured Video] (https://github.com/airton/video-
 Sites must be built on PHP 5.6 or greater, but Jetpack always supports the latest version of PHP.
 
 == Changelog ==
+
+= 1.7.5 =
+* Feat: Add shortcode to display featured video.
 
 = 1.7.4 =
 * Fix: Address security warnings and update plugin version

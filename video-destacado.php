@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*
 Plugin Name: Vídeo Destacado
 Description: Insert a featured YouTube video for posts, pages and custom post types
-Version: 1.7.4
+Version: 1.7.5
 License: GPL-3.0-or-later
 Author: @airton
 Author URI: http://www.airtonvancin.com
@@ -158,6 +158,36 @@ function video_destacado(){
     );
   }
 }
+
+/**
+ * Add shortcode to display featured video.
+ *
+ * @param array $atts Shortcode attributes.
+ * @return string Shortcode output.
+ */
+function video_destacado_shortcode( $atts ) {
+    global $post;
+    $values = get_post_custom( $post->ID );
+    $id_video = isset( $values['id_video'] ) ? $values['id_video'][0] : '';
+
+    if ( empty( $id_video ) ) {
+        return '';
+    }
+
+    $defaults = array(
+        'width'  => ! empty( $values['width_video'][0] ) ? $values['width_video'][0] : 560,
+        'height' => ! empty( $values['height_video'][0] ) ? $values['height_video'][0] : 315,
+    );
+    $atts = shortcode_atts( $defaults, $atts, 'video-destacado' );
+
+    return sprintf(
+        '<iframe width="%1$s" height="%2$s" src="%3$s" frameborder="0" allowfullscreen></iframe>',
+        esc_attr( $atts['width'] ),
+        esc_attr( $atts['height'] ),
+        esc_url( 'https://www.youtube.com/embed/' . $id_video )
+    );
+}
+add_shortcode( 'video-destacado', 'video_destacado_shortcode' );
 
 // Enqueue admin scripts and styles.
 add_action( 'admin_enqueue_scripts', 'video_destacado_admin_assets' );
