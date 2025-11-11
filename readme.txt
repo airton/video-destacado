@@ -1,6 +1,6 @@
 === Vídeo Destacado ===
 Contributors: airtonvancin
-Donate link: https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=93975544-d3277b00-b729-47a7-bfa0-9a19d4e5afec
+Donate link: https://link.mercadopago.com.br/pluginswordpress
 Tags: video, destacado, destaque, post, page
 Requires at least: 3.0
 Tested up to: 6.9
