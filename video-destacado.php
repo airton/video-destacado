@@ -231,3 +231,17 @@ function video_destacado_admin_assets()
     '1.0'
   );
 }
+
+function video_destacado_plugin_row_meta($plugin_meta, $plugin_file)
+{
+  if ($plugin_file !== 'video-destacado/video-destacado.php') {
+    return $plugin_meta;
+  }
+
+  $plugin_meta[] = '<a href="https://www.buymeacoffee.com/airton" target="_blank">' . __('☕️ Buy me a coffee', 'textdomain') . '</a>';
+  $plugin_meta[] = '<a href="https://airtonvancin.com/plugin/video-destacado" target="_blank">' . __('Visite plugin page', 'textdomain') . '</a>';
+
+  return $plugin_meta;
+}
+
+add_filter('plugin_row_meta', 'video_destacado_plugin_row_meta', 10, 2);

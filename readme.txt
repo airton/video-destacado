@@ -1,6 +1,6 @@
 === Vídeo Destacado ===
 Contributors: airtonvancin
-Donate link: https://link.mercadopago.com.br/pluginswordpress
+Donate link: https://www.buymeacoffee.com/airton
 Tags: video, destacado, destaque, post, page
 Requires at least: 3.0
 Tested up to: 6.9
